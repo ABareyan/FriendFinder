@@ -192,24 +192,27 @@
 
 
     <script type="text/javascript">
+
+
+
+
+$('#add-btn').on('click', function(event) {
+    event.preventDefault();
     
-        $('#add-btn').on('click', function(event) {
-            event.preventDefault();
-
-            // check form validation
-            function validateForm() {
-                var isValid = true;
-                $('.form-control').each(function() {
-                    if ($('this').val() === "") isValid = false;
-                });
-
-                $('.chosen-select').each(function() {
-                    if ($('this').val() === "") isValid = false;
-                });
-                return isValid;
-            }
-
-
+    // check form validation
+    function validateForm() {
+        var isValid = true;
+            $('.form-control').each(function() {
+                if ($(this).val() === '') isValid = false;
+            });
+        
+            $('.chosen-select').each(function() {
+                if ($(this).val() === '') isValid = false;
+            });
+            return isValid;
+        
+        }
+            
             if (validateForm()) {
                 // create new object
                 var userData = {
