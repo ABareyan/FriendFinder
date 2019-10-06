@@ -17,18 +17,22 @@
 
     <!-- fa fa icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
     <!-- jQuery script -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
 </head>
 
 <body>
 
     <div class="container">
         <div class="jumbotron">
-            <h1 class="text-center"><i class="fa fa-question" aria-hidden="true"></i></i> &nbsp; Survey Question</h1>
+            <h1 class="text-center"><i class="fa fa-question" aria-hidden="true"></i> &nbsp; Survey Question</h1>
             <h3 class="text-center">Be open-minded in answers</h3>
         </div>
 
@@ -89,7 +93,7 @@
                         <h3>Question 4</h3>
                         <h5>You ready to travel even if the country is a dangerous</h5>
                         <small>You can check how safe is the country
-                            <a href="https://alankuz.github.io/Travel-Wizard/">here.</a>
+                            <a href="https://abareyan.github.io/Travel-Wizard/">here.</a>
                         </small>
 
                         <select class="chosen-select" id="q4">
@@ -155,11 +159,14 @@
                         </select>
                         <hr>
 
-                        <button type="submit" id="add-btn" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="add-btn" class="btn btn-primary btn-lg btn-block"><i class="fa fa-check-circle" aria-hidden="true"></i> &nbsp;Submit</button>
                     </form>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <a href="/api/friend">API Friends List</a><span> | </span><a href="https://github.com/ABareyan/FriendFinder">GitHub Repo</a><span> 
+         </footer>
     </div>
 
     <!-- Modal -->
@@ -169,12 +176,11 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h2 class="modal-title"><strong>Best Match</strong></h2>
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://via.placeholder.com/400x400" alt="">
+                    <img width="90%" id="match-img" src="https://via.placeholder.com/400x400" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -186,6 +192,7 @@
 
 
     <script type="text/javascript">
+    
         $('#add-btn').on('click', function(event) {
             event.preventDefault();
 
@@ -222,14 +229,19 @@
 
                 console.log(userData.name);
 
-                $.post("api/friend", userData, function(data) {
+                // AJAX post the data to the friends API.
+                $.post("/api/friend", userData, function(data) {
+
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
+
+                    // Show the modal with the best match
                     $("#results-modal").modal("toggle");
                 });
             } else {
-                alert("Please fill oit all fields before submitting!")
-            }
+        alert("Please fill out all fields before submitting!");
+      }
         });
     </script>
 </body>

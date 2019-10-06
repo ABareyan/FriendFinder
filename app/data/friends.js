@@ -24,7 +24,13 @@ var friends = [
         name: "Naomi Campbell",
         photo: "https://pbs.twimg.com/media/C4Jy39bW8AAkxEZ.jpg",
         scores: [2, 1, 4, 3, 2, 3, 3, 2]
+    },
+    {
+        name: "Dwayne Johnson",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg",
+        scores: [5, 4, 3, 5, 3, 5, 3, 5]
     }
+
 ];
 
 module.exports = friends;
