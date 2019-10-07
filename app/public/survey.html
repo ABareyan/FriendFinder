@@ -180,6 +180,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
+                    <p id="match-attencion"></p>
                     <img width="90%" id="match-img" src="https://via.placeholder.com/400x400" alt="">
                 </div>
                 <div class="modal-footer">
@@ -190,6 +191,24 @@
         </div>
     </div>
 
+    <div id="resultsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><strong>Dear Friend</strong></h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please fill out all fields before submitting!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
 
     <script type="text/javascript">
 
@@ -243,8 +262,11 @@ $('#add-btn').on('click', function(event) {
                     $("#results-modal").modal("toggle");
                 });
             } else {
-        alert("Please fill out all fields before submitting!");
-      }
+                // Show the modal with the empty match
+                $("#resultsModal").modal("toggle");
+
+               
+    }
         });
     </script>
 </body>

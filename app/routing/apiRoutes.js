@@ -27,57 +27,53 @@ module.exports = function(app) {
             scores: num
         };
 
-        if (friendName === "") {
-            console.log("Please input your name!");
-        } else {
-
-            // log User name and sc ore
-            console.log("Name: " + friendName);
-            console.log("Score: " + friendScore);
-            console.log("=============================================");
+        // log User name and sc ore
+        console.log("Name: " + friendName);
+        console.log("Score: " + friendScore);
+        console.log("=============================================");
 
 
-            var sum = num.reduce((a, b) => a + b);
+        var sum = num.reduce((a, b) => a + b);
 
-            console.log("Friend score: " + sum);
+        console.log("Friend score: " + sum);
+        console.log("Best choise: " + bestChoise.difference);
+        console.log("=============================================");
+
+
+
+        for (var i = 0; i < friends.length; i++) {
+            //log Friends name
+            console.log("Friend name: " + friends[i].name);
+
+            totalDifference = 0;
+            console.log("Tottal diff: " + totalDifference);
             console.log("Best choise: " + bestChoise.difference);
-            console.log("=============================================");
 
 
+            var bestScore = friends[i].scores.reduce((a, b) => a + b);
 
-            for (var i = 0; i < friends.length; i++) {
-                //log Friends name
-                console.log("Friend name: " + friends[i].name);
+            console.log("Friend total score: " + bestScore);
 
-                totalDifference = 0;
-                console.log("Tottal diff: " + totalDifference);
-                console.log("Best choise: " + bestChoise.difference);
+            totalDifference += Math.abs(sum - bestScore);
 
+            console.log(totalDifference + ' total difference');
 
-                var bestScore = friends[i].scores.reduce((a, b) => a + b);
-
-                console.log("Friend total score: " + bestScore);
-
-                totalDifference += Math.abs(sum - bestScore);
-
-                console.log(totalDifference + ' total difference');
-
-                if (totalDifference <= bestChoise.difference) {
-                    bestChoise.name = friends[i].name;
-                    bestChoise.photo = friends[i].photo;
-                    bestChoise.difference = totalDifference;
-                }
-
-                console.log(totalDifference + ' total difference');
-                console.log("=======================================");
-
+            if (totalDifference <= bestChoise.difference) {
+                bestChoise.name = friends[i].name;
+                bestChoise.photo = friends[i].photo;
+                bestChoise.difference = totalDifference;
             }
-            console.log(bestChoise);
-            friends.push(friendData);
-            console.log("New friend added");
-            console.log(friendData);
-            res.json(bestChoise);
+
+            console.log(totalDifference + ' total difference');
+            console.log("=======================================");
+
         }
+        console.log(bestChoise);
+        friends.push(friendData);
+        console.log("New friend added");
+        console.log(friendData);
+        res.json(bestChoise);
+
     });
 
 
