@@ -9,6 +9,13 @@
         small {
             display: block;
         }
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
     </style>
 
     <!-- Required meta tags -->
@@ -181,7 +188,7 @@
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
                     <p id="match-attencion"></p>
-                    <img width="90%" id="match-img" src="https://via.placeholder.com/400x400" alt="">
+                    <img id="match-img" class="center" src="https://via.placeholder.com/400x400" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -200,7 +207,11 @@
                         <h2 class="modal-title"><strong>Dear Friend</strong></h2>
                     </div>
                     <div class="modal-body">
-                        <p>Please fill out all fields before submitting!</p>
+                        <h4>if you don't want to travel alone or with this!</h4>
+                        <hr>
+                        <img src="assets/1.jpg" class="center" alt="">
+                        <hr>
+                        <h4>Please fill out all fields before submitting!</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -211,9 +222,6 @@
         </div>
 
     <script type="text/javascript">
-
-
-
 
 $('#add-btn').on('click', function(event) {
     event.preventDefault();
@@ -262,13 +270,12 @@ $('#add-btn').on('click', function(event) {
                     $("#results-modal").modal("toggle");
                 });
             } else {
+
                 // Show the modal with the empty match
                 $("#resultsModal").modal("toggle");
-
-               
-    }
+                }
         });
     </script>
-</body>
+</body> 
 
 </html>
