@@ -12,11 +12,11 @@ The application is implemented using a Node.js and Express server on the back en
 
 ## Screen
 
-![Screen1](./assets/Screen1.png)
+![Screen1](./app/public/assets/Screen1.png)
 
-![Screen2](./assets/Screen2.png)
+![Screen2](./app/public/assets/Screen2.png)
 
-![Screen3](./assets/Screen3.png)
+![Screen3](./app/public/assets/Screen3.png)
 
 ## Using
 
