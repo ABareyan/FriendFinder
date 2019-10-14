@@ -21,7 +21,7 @@ The application is implemented using a Node.js and Express server on the back en
 ## Using
 
 * HTML5
-* CSS#
+* CSS3
 * Bootstrap
 * JavaScript
 * NodeJS
