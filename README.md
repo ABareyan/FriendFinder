@@ -25,7 +25,6 @@ The application is implemented using a Node.js and Express server on the back en
 * Bootstrap
 * JavaScript
 * NodeJS
-* MySQL
 * NPM 
     * express
     * path
